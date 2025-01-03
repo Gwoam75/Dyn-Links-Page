@@ -10,9 +10,9 @@
             const formattedDate = currentDate.toISOString().split('T')[0]; // YYYY-MM-DD
             const formattedTime = currentDate.toTimeString().split(' ')[0]; // HH:MM:SS
             
-            const baseURL = "https://www.exemple.com/mon-url-fixe/viewform?usp=pp_url";
+            const baseURL = "https://docs.google.com/forms/d/e/1FAIpQLSesLezd2bNzFCo9dRHNXCgKtS_hjvcJ0YfwoiMlKfc-3iiqtA/viewform?usp=pp_url";
             const urls = [
-                `${baseURL}&entry.date-actuelle=${formattedDate}&entry.heure-actuelle=${formattedTime}`
+                `${baseURL}&entry.1661687474=${formattedDate}&entry.361586492=${formattedTime}&entry.994939992=1`
             ];
 
             const listContainer = document.getElementById("url-list");
