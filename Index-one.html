@@ -21,10 +21,12 @@
             urlElement.textContent = dynamicURL;
 
             // Rediriger automatiquement vers l'URL
-            //window.location.href = dynamicURL;
-            setTimeout(() => {
-        window.location.href = dynamicURL;
-        }, 10000); // Redirection après 10 secondes
+            window.location.href = dynamicURL;
+            //Time Out si besoin de voir page avant redirection (par exemple enregistrement favoris)
+               //setTimeout(() => {
+               //window.location.href = dynamicURL;
+               // }, 10000); // Redirection après 10 secondes
+            
         }
 
         // Exécuter la redirection dès que la page est chargée
