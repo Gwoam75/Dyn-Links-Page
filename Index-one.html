@@ -3,37 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>URLs Dynamiques</title>
+    <title>Redirection Dynamique</title>
     <script>
-        function generateURLs() {
+        function redirectToDynamicURL() {
+            // Générer la date et l'heure actuelles
             const currentDate = new Date();
             const formattedDate = currentDate.toISOString().split('T')[0]; // YYYY-MM-DD
             const formattedTime = currentDate.toTimeString().split(' ')[0]; // HH:MM:SS
-            
-            const baseURL = "https://docs.google.com/forms/d/e/1FAIpQLSesLezd2bNzFCo9dRHNXCgKtS_hjvcJ0YfwoiMlKfc-3iiqtA/viewform?usp=pp_url";
-            const urls = [
-                `${baseURL}&entry.1661687474=${formattedDate}&entry.361586492=${formattedTime}&entry.994939992=1`
-            ];
 
-            const listContainer = document.getElementById("url-list");
-            urls.forEach(url => {
-                const listItem = document.createElement("li");
-                const link = document.createElement("a");
-                link.href = url;
-                link.textContent = "Compteur";
-                link.target = "_blank";
-                listItem.appendChild(link);
-                listContainer.appendChild(listItem);
-            });
+            // Construire l'URL dynamique avec les paramètres réels
+            const baseURL = "https://docs.google.com/forms/d/e/1FAIpQLSesLezd2bNzFCo9dRHNXCgKtS_hjvcJ0YfwoiMlKfc-3iiqtA/viewform?usp=pp_url";
+            const dynamicURL = `${baseURL}&entry.1661687474=${formattedDate}&entry.361586492=${formattedTime}&entry.994939992=1`;
+
+            // Afficher l'URL dans l'élément avec l'ID url-new (utile pour debug)
+            const urlElement = document.getElementById("url-new");
+            urlElement.textContent = dynamicURL;
+
+            // Rediriger automatiquement vers l'URL
+            window.location.href = dynamicURL;
         }
 
-        // Générer les URLs dynamiques au chargement de la page
-        window.onload = generateURLs;
+        // Exécuter la redirection dès que la page est chargée
+        window.onload = redirectToDynamicURL;
     </script>
 </head>
 <body>
-    <h1>Liste des URLs Dynamiques</h1>
-    <ul id="url-list"></ul>
-
+    <p>Redirection en cours...</p>
+    <p id="url-new" style="display: none;"></p> <!-- Élément pour afficher l'URL (facultatif) -->
 </body>
 </html>
